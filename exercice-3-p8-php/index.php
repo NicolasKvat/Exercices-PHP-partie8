@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['login']) && isset($_POST['password'])) { 
+if (!empty($_POST['login']) && !empty($_POST['password'])) { 
  setcookie('loginCookie', $_POST['login'], time() + 365*24*3600, '/');
  setcookie('passwordCookie', $_POST['password'], time() + 365*24*3600, '/');
  header('Location: index.php');
@@ -25,7 +25,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
       </header>
         <form class="text-center" method="post">
             <input type="text" name="login" placeholder="Identifiant">
-            <input type="text" name="password" placeholder="Mot de passe">
+            <input type="password" name="password" placeholder="Mot de passe">
             <input type="submit" value="Valider"/>
         </form>
         <p>
